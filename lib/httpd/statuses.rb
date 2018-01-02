@@ -1,4 +1,4 @@
-module Http
+module Httpd
 
   # TODO: detailsにエスケープキーで使われる「\」がないか確認すること
 

@@ -1,10 +1,10 @@
-require "http/version"
-require "http/statuses"
+require "httpd/version"
+require "httpd/statuses"
 
 require "optparse"
 require "colorize"
 
-module Http
+module Httpd
   OptionParser.new do |opts|
     opts.banner = "A command line tool for looking up the deatils of http (HyperText Transfer Protocol) statuses"
     opts.separator ""
