@@ -1,7 +1,5 @@
-#!/usr/bin/env ruby
-
-require "./http/version"
-require "./http/statuses"
+require "http/version"
+require "http/statuses"
 
 require "optparse"
 require "colorize"
@@ -55,9 +53,9 @@ module Http
             end
 
             if ARGV.include?("-jp")
-              print " #{s[:status]}\n#{s[:details_jp]}\n"
+              print " #{s[:status]} (#{s[:classification]})\n#{s[:details_jp]}\n"
             else
-              print " #{s[:status]}\n#{s[:details]}\n"
+              print " #{s[:status]} (#{s[:classification]})\n#{s[:details]}\n"
             end
 
             break
@@ -79,7 +77,8 @@ module Http
       exit
     end
   end.parse!
-  
+
+# TODO...
 =begin
   def self.colorize_and_print(str)
     case str[:classification]
