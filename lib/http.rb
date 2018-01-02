@@ -6,7 +6,7 @@ require "colorize"
 
 module Http
   OptionParser.new do |opts|
-    opts.banner = "A command line tool for looking up http (HyperText Transfer Protocol) statuses"
+    opts.banner = "A command line tool for looking up the deatils of http (HyperText Transfer Protocol) statuses"
     opts.separator ""
     opts.separator "Options:"
 
@@ -73,7 +73,7 @@ module Http
     end
 
     opts.on_tail("-v", "--version", "Show version") do
-      puts Version
+      puts VERSION
       exit
     end
   end.parse!
