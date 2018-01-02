@@ -1,10 +1,10 @@
-# http
+# http :mag:
 
 A Ruby command line tool for looking up http statuses
 
 ## Installation
 
-`$ gem install http`
+todo
 
 ## Usage
 
