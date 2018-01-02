@@ -6,7 +6,7 @@ require "colorize"
 
 module Httpd
   OptionParser.new do |opts|
-    opts.banner = "A command line tool for looking up the deatils of http (HyperText Transfer Protocol) statuses"
+    opts.banner = "A command line tool for looking up the details of http (HyperText Transfer Protocol) statuses"
     opts.separator ""
     opts.separator "Options:"
 
@@ -14,7 +14,7 @@ module Httpd
 
     opts.on("-s [NUMBER]",
             OptionParser::DecimalInteger,
-            "Shows the status if a number is selected. If no number, shows a master list of all statuses"
+            "Shows the status with details if a number is selected. If no number, shows a master list of all statuses"
             ) do |i|
       if i == nil
         Statuses.each do |s|

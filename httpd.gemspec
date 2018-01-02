@@ -9,7 +9,7 @@ Gem::Specification.new do |spec|
   spec.authors       = ["gazayas"]
   spec.email         = ["g-zayas@hotmail.com"]
 
-  spec.summary       = %q{A command line tool for looking up the deatils of http (HyperText Transfer Protocol) statuses}
+  spec.summary       = %q{A command line tool for looking up the details of http (HyperText Transfer Protocol) statuses}
   spec.homepage      = "http://www.github.com/gazayas/httpd"
 
   # Prevent pushing this gem to RubyGems.org. To allow pushes either set the 'allowed_push_host'
