@@ -1,6 +1,6 @@
 # httpd :mag:
 
-A Ruby command line tool for looking up details of http statuses
+A Ruby command line tool for looking up details of http statuses<br/>
 The "d" stands for "details"
 
 ## Installation
