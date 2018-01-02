@@ -26,7 +26,7 @@ Standard response for succesful HTTP requests. The actual response will depend o
 ```
 
 
-`-jp`を語尾につけたら、日本語の詳細は表示されます：
+`-jp`を末尾につけたら、日本語の詳細は表示されます：
 
 ```github
 $ httpd -s 200 -jp
