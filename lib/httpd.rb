@@ -20,7 +20,7 @@ module Httpd
         Statuses.each do |s|
           s[:number] = s[:number].to_s
           case s[:classification]
-          when "Information response"
+          when "Information Response"
             print s[:number].colorize(:cyan)
           when "Success"
             print s[:number].colorize(:light_green)
@@ -40,7 +40,7 @@ module Httpd
             s[:number] = s[:number].to_s
 
             case s[:classification]
-            when "Information response"
+            when "Information Response"
               print s[:number].colorize(:cyan)
             when "Success"
               print s[:number].colorize(:light_green)

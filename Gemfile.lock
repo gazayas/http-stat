@@ -1,14 +1,36 @@
 PATH
   remote: .
   specs:
-    http (0.1.0)
+    httpd (0.1.1)
       colorize
 
 GEM
   remote: https://rubygems.org/
   specs:
     colorize (0.8.1)
+    diff-lcs (1.3)
+    mixlib-shellout (2.3.2)
     rake (10.5.0)
+    rspec (3.7.0)
+      rspec-core (~> 3.7.0)
+      rspec-expectations (~> 3.7.0)
+      rspec-mocks (~> 3.7.0)
+    rspec-command (1.0.3)
+      mixlib-shellout (~> 2.0)
+      rspec (~> 3.2)
+      rspec-its (~> 1.2)
+    rspec-core (3.7.1)
+      rspec-support (~> 3.7.0)
+    rspec-expectations (3.7.0)
+      diff-lcs (>= 1.2.0, < 2.0)
+      rspec-support (~> 3.7.0)
+    rspec-its (1.2.0)
+      rspec-core (>= 3.0.0)
+      rspec-expectations (>= 3.0.0)
+    rspec-mocks (3.7.0)
+      diff-lcs (>= 1.2.0, < 2.0)
+      rspec-support (~> 3.7.0)
+    rspec-support (3.7.0)
 
 PLATFORMS
   ruby
@@ -16,8 +38,10 @@ PLATFORMS
 DEPENDENCIES
   bundler (~> 1.16)
   colorize
-  http!
+  httpd!
   rake (~> 10.0)
+  rspec
+  rspec-command
 
 BUNDLED WITH
    1.16.1

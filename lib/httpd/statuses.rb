@@ -496,7 +496,7 @@ module Httpd
   # Add classification to all statuses
   Statuses.each do |s|
     if s[:number] < 200
-      s[:classification] = 'Information response'
+      s[:classification] = 'Information Response'
     elsif s[:number] >= 200 and s[:number] < 300
       s[:classification] = 'Success'
     elsif s[:number] >= 300 and s[:number] < 400
