@@ -40,20 +40,7 @@ module Httpd
       else
         Statuses.each do |s|
           if s[:number] == i
-            s[:number] = s[:number].to_s
-
-            case s[:classification]
-            when "Information Response"
-              print s[:number].colorize(:cyan)
-            when "Success"
-              print s[:number].colorize(:light_green)
-            when "Redirection"
-              print s[:number].colorize(:light_cyan)
-            when "Client Error"
-              print s[:number].colorize(:light_red)
-            when "Server Error"
-              print s[:number].colorize(:light_yellow)
-            end
+	    colorizeAndPrint.call(s)
 
             if ARGV.include?("-jp")
               print " #{s[:status]} (#{s[:classification]})\n#{s[:details_jp]}\n"
@@ -80,20 +67,4 @@ module Httpd
       exit
     end
   end.parse!
-
-  def self. colorize_and_print(stat)
-    stat[:number] = stat[:number].to_s 
-    case stat[:classification]
-    when "Information response"
-      print stat[:number].colorize(:cyan)
-    when "Success"
-      print stat[:number].colorize(:light_green)
-    when "Redirection"
-      print stat[:number].colorize(:light_cyan)
-    when "Client Error"
-      print stat[:number].colorize(:light_red)
-    when "Server Error"
-      print stat[:number].colorize(:light_yellow)
-    end
-  end
 end
