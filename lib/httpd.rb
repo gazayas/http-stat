@@ -39,19 +39,15 @@ module Httpd
           print " #{stat[:status]} (#{stat[:classification]})\n"
         end
       else
-	# TODO: Use #select ? That might be better 性能的には
-        Statuses.each do |stat|
-          if stat[:number] == i
-	    colorizeAndPrint.call(stat)
+        stat = Statuses.select{ |hash| i == hash[:number] }
+        stat = stat.first
+	colorizeAndPrint.call(stat)
 
-            if ARGV.include?("-jp")
-              print " #{stat[:status]} (#{stat[:classification]})\n#{stat[:details_jp]}\n"
-            else
-              print " #{stat[:status]} (#{stat[:classification]})\n#{stat[:details]}\n"
-            end
-
-            break
-          end
+	# TODO: Probably not the best way to "parse" this option
+        if ARGV.include?("-jp")
+          print " #{stat[:status]} (#{stat[:classification]})\n#{stat[:details_jp]}\n"
+        else
+          print " #{stat[:status]} (#{stat[:classification]})\n#{stat[:details]}\n"
         end
       end
     end
