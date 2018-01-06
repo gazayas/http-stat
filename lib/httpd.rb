@@ -12,26 +12,29 @@ module Httpd
 
     options = {}
 
+    colorizeAndPrint = Proc.new { |stat|
+      stat[:number] = stat[:number].to_s
+      case stat[:classification]
+      when "Information Response"
+        print stat[:number].colorize(:cyan)
+      when "Success"
+        print stat[:number].colorize(:light_green)
+      when "Redirection"
+        print stat[:number].colorize(:light_cyan)
+      when "Client Error"
+        print stat[:number].colorize(:light_red)
+      when "Server Error"
+        print stat[:number].colorize(:light_yellow)
+      end
+    }
+
     opts.on("-s [NUMBER]",
             OptionParser::DecimalInteger,
             "Shows the status with details if a number is selected. If no number, shows a master list of all statuses"
             ) do |i|
       if i == nil
         Statuses.each do |s|
-          s[:number] = s[:number].to_s
-          case s[:classification]
-          when "Information Response"
-            print s[:number].colorize(:cyan)
-          when "Success"
-            print s[:number].colorize(:light_green)
-          when "Redirection"
-            print s[:number].colorize(:light_cyan)
-          when "Client Error"
-            print s[:number].colorize(:light_red)
-          when "Server Error"
-            print s[:number].colorize(:light_yellow)
-          end
-
+	  colorizeAndPrint.call(s)
           print " #{s[:status]} (#{s[:classification]})\n"
         end
       else
@@ -78,21 +81,19 @@ module Httpd
     end
   end.parse!
 
-# TODO...
-=begin
-  def self.colorize_and_print(str)
-    case str[:classification]
+  def self. colorize_and_print(stat)
+    stat[:number] = stat[:number].to_s 
+    case stat[:classification]
     when "Information response"
-      print s[:number].colorize(:cyan)
+      print stat[:number].colorize(:cyan)
     when "Success"
-      print s[:number].colorize(:light_green)
+      print stat[:number].colorize(:light_green)
     when "Redirection"
-      print s[:number].colorize(:light_cyan)
+      print stat[:number].colorize(:light_cyan)
     when "Client Error"
-      print s[:number].colorize(:light_red)
+      print stat[:number].colorize(:light_red)
     when "Server Error"
-      print s[:number].colorize(:light_yellow)
+      print stat[:number].colorize(:light_yellow)
     end
   end
-=end  
 end
