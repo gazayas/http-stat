@@ -12,32 +12,34 @@ module Httpd
 
     options = {}
 
-    colorizeAndPrint = Proc.new { |stat|
-      stat[:number] = stat[:number].to_s
-      case stat[:classification]
-      when "Information Response"
-        print stat[:number].colorize(:cyan)
-      when "Success"
-        print stat[:number].colorize(:light_green)
-      when "Redirection"
-        print stat[:number].colorize(:light_cyan)
-      when "Client Error"
-        print stat[:number].colorize(:light_red)
-      when "Server Error"
-        print stat[:number].colorize(:light_yellow)
-      end
-    }
-
     opts.on("-s [NUMBER]",
             OptionParser::DecimalInteger,
             "Shows the status with details if a number is selected. If no number, shows a master list of all statuses"
             ) do |i|
-      if i == nil
+
+      colorizeAndPrint = Proc.new { |stat|
+        stat[:number] = stat[:number].to_s
+        case stat[:classification]
+        when "Information Response"
+          print stat[:number].colorize(:cyan)
+        when "Success"
+          print stat[:number].colorize(:light_green)
+        when "Redirection"
+          print stat[:number].colorize(:light_cyan)
+        when "Client Error"
+          print stat[:number].colorize(:light_red)
+        when "Server Error"
+          print stat[:number].colorize(:light_yellow)
+        end
+      }
+
+      unless i
         Statuses.each do |stat|
 	  colorizeAndPrint.call(stat)
           print " #{stat[:status]} (#{stat[:classification]})\n"
         end
       else
+	# TODO: Use #select ? That might be better 性能的には
         Statuses.each do |stat|
           if stat[:number] == i
 	    colorizeAndPrint.call(stat)
