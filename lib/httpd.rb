@@ -33,19 +33,19 @@ module Httpd
             "Shows the status with details if a number is selected. If no number, shows a master list of all statuses"
             ) do |i|
       if i == nil
-        Statuses.each do |s|
-	  colorizeAndPrint.call(s)
-          print " #{s[:status]} (#{s[:classification]})\n"
+        Statuses.each do |stat|
+	  colorizeAndPrint.call(stat)
+          print " #{stat[:status]} (#{stat[:classification]})\n"
         end
       else
-        Statuses.each do |s|
-          if s[:number] == i
-	    colorizeAndPrint.call(s)
+        Statuses.each do |stat|
+          if stat[:number] == i
+	    colorizeAndPrint.call(stat)
 
             if ARGV.include?("-jp")
-              print " #{s[:status]} (#{s[:classification]})\n#{s[:details_jp]}\n"
+              print " #{stat[:status]} (#{stat[:classification]})\n#{stat[:details_jp]}\n"
             else
-              print " #{s[:status]} (#{s[:classification]})\n#{s[:details]}\n"
+              print " #{stat[:status]} (#{stat[:classification]})\n#{stat[:details]}\n"
             end
 
             break
