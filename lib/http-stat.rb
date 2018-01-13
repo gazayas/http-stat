@@ -1,10 +1,10 @@
-require "httpd/version"
-require "httpd/statuses"
+require "http-stat/version"
+require "http-stat/statuses"
 
 require "optparse"
 require "colorize"
 
-module Httpd
+module HttpStat
   OptionParser.new do |opts|
     opts.banner = "A command line tool for looking up the details of http (HyperText Transfer Protocol) statuses"
     opts.separator ""
@@ -35,15 +35,15 @@ module Httpd
 
       unless i
         Statuses.each do |stat|
-	  colorizeAndPrint.call(stat)
+          colorizeAndPrint.call(stat)
           print " #{stat[:status]} (#{stat[:classification]})\n"
         end
       else
         stat = Statuses.select{ |hash| i == hash[:number] }
         stat = stat.first
-	colorizeAndPrint.call(stat)
+        colorizeAndPrint.call(stat)
 
-	# TODO: Probably not the best way to "parse" this option
+        # TODO: Probably not the best way to "parse" this option
         if ARGV.include?("-jp")
           print " #{stat[:status]} (#{stat[:classification]})\n#{stat[:details_jp]}\n"
         else

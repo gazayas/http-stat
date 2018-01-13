@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    httpd (0.1.1)
+    http-stat (0.1.1)
       colorize
 
 GEM
@@ -38,7 +38,7 @@ PLATFORMS
 DEPENDENCIES
   bundler (~> 1.16)
   colorize
-  httpd!
+  http-stat!
   rake (~> 10.0)
   rspec
   rspec-command
