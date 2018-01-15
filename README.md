@@ -32,7 +32,3 @@ $ http-stat -s 200 -jp
 200 OK (Success)
 OK。リクエストは成功し、レスポンスとともに要求に応じた情報が返される。ブラウザでページが正しく表示された場合は、ほとんどがこのステータスコードを返している。
 ```
-
-## Contributing
-
-Bug reports and pull requests are welcome on GitHub at https://github.com/gazayas/httpd.
